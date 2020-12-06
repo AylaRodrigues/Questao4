@@ -1,9 +1,39 @@
-# Questao4
-Garotes de Programa- Ayla Rodrigues de Moura, Douglas Mareli, João Vitõr Spala , Sofia Kitaeva - Questão 4
+//Questao4
+//Garotes de Programa- Ayla Rodrigues de Moura, Douglas Mareli, João Vitor Spala , Sofia Kitaeva - Questão 4
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+void troca(char *a, char *b)
+{
+	char c;
+	
+	c = *a;
+	*a = *b;
+	*b = c;	
+}
+
+char *espelhamentoVertical(char *str)
+{
+	char *inicio, *fim;
+	
+	inicio = fim = str;
+	
+	while(*fim)
+	{
+		fim++;
+	}
+	
+	for(fim--; inicio <= fim; inicio ++, fim--)
+	{
+		troca(inicio,fim);
+	}
+	
+	return str;
+}
+
 
 int main (){
 	
@@ -13,6 +43,21 @@ int main (){
 	for(int i = 0; i < 23; i++)
 	{
 		gets(desenho[i]);
+	}
+	
+	//Espelhamento Vertical
+	int ev;
+	printf("Aplicar EV quantas vezes? \n");
+	scanf("%d",&ev);
+	if(ev!=0)
+	{
+		for(int j = 0; j <ev; j++)
+		{
+			for(int i =0; i<23;i++)
+			{
+			espelhamentoVertical(desenho[i]);
+			}
+		}
 	}
 	
 	//printar resultado
